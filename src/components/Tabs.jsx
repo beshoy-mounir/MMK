@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Program from "./program/Prgram";
 import Taranem from "./taranem/Taranem";
 import Slogan from "./slogan/Slogan";
-import Prayer from "./prayer/prayer";
+import Prayer from "./prayer/Prayer";
 // Images
 import programImg from "../assets/program.jpeg";
 import taranemImg from "../assets/taranem.jpeg";

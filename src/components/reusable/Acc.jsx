@@ -20,7 +20,7 @@ import { IoIosArrowDown } from "react-icons/io";
 //   },
 // ];
 
-export default function Acc({ accordionData }) {
+export default function Acc({ accordionData, dir }) {
   const [open, setOpen] = useState("0");
 
   const toggleOpen = (id) => {
@@ -28,21 +28,21 @@ export default function Acc({ accordionData }) {
   };
 
   return (
-    <div className="mx-auto mt-10 max-w-2xl divide-y">
+    <div className="flex flex-col divide-y overflow-hidden">
       {accordionData.map((item) => (
-        <div key={item.id}>
+        <div key={item.id} className="flex w-full flex-col overflow-hidden">
           <button
             onClick={() => toggleOpen(item.id)}
-            className="flex w-full items-center justify-between px-5 py-4 text-left font-semibold text-[#ecb962] transition-colors"
+            className={`${dir === "left" ? "flex" : "flex-row-reverse"} ${dir === "left" ? "text-left" : "text-right"} w-full items-center justify-between px-5 py-4 font-semibold text-[#ecb962] text-black transition-colors`}
           >
-            {item.head}
+            <span>{item.head}</span>
             <IoIosArrowDown
               className={`transform text-xl transition-transform duration-300 ${
                 open === item.id ? "rotate-180" : ""
               }`}
             />
           </button>
-
+          {/*  */}
           <AnimatePresence initial={false}>
             {open === item.id && (
               <motion.div
@@ -55,9 +55,11 @@ export default function Acc({ accordionData }) {
                   collapsed: { height: 0, opacity: 0 },
                 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="overflow-hidden px-5"
+                className="px-5"
               >
-                <div className="py-4 text-white">{item.body}</div>
+                <div className={`py-4 text-white ${dir === "left" ? "text-left" : "text-right"}`}>
+                  {item.body}
+                </div>
               </motion.div>
             )}
           </AnimatePresence>

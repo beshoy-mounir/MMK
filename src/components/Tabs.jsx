@@ -52,8 +52,8 @@ export default function Tabs() {
   };
 
   return (
-    <div className="flex h-screen flex-col items-center bg-[#c67f31] px-3">
-      <ul className="relative flex space-x-4">
+    <div className="flex h-full w-full flex-col items-center bg-[#c67f31] px-3 pb-10">
+      <ul className="h relative flex w-full space-x-4">
         {tabs.map((tab) => (
           <button
             key={tab}
@@ -61,7 +61,7 @@ export default function Tabs() {
             className="relative px-1 py-2 text-xl font-semibold text-[#ecb962] [text-shadow:_0_2px_0_rgb(0_0_0_/_100%)]"
           >
             {/* Use the new images object to render the correct image in a single line */}
-            <img src={images[tab]} alt={`${tab}`} className="h-full w-20 rounded-md object-cover" />
+            <img src={images[tab]} alt={`${tab}`} className="h-full rounded-md object-cover" />
             {selected === tab && (
               <motion.div
                 layoutId="underline"
@@ -78,7 +78,7 @@ export default function Tabs() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.3 }}
-          className="mt-8 text-xl text-gray-700"
+          className="mt-8 w-full text-xl text-gray-700"
         >
           {ComponentToRender && <ComponentToRender />}
         </motion.div>

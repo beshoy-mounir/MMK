@@ -33,11 +33,11 @@ export default function Acc({ accordionData, dir }) {
         <div key={el.id} className="flex w-full flex-col overflow-hidden">
           <button
             onClick={() => toggleOpen(el.id)}
-            className={`${dir === "left" ? "flex" : "flex-row-reverse"} ${dir === "left" ? "text-left" : "text-right"} w-full items-center justify-between px-5 py-4 font-semibold text-[#ecb962] text-black transition-colors`}
+            className={`${dir === "left" ? "flex" : "flex-row-reverse"} ${dir === "left" ? "text-left" : "text-right"} w-full items-center justify-between px-5 py-4 font-semibold text-black transition-colors`}
           >
-            <span>{el.head}</span>
+            <span className="text-[#ecb962]">{el.head}</span>
             <IoIosArrowDown
-              className={`transform text-xl transition-transform duration-300 ${
+              className={`transform text-xl text-[#ecb962] transition-transform duration-300 ${
                 open === el.id ? "rotate-180" : ""
               }`}
             />
@@ -57,7 +57,7 @@ export default function Acc({ accordionData, dir }) {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="px-5"
               >
-                <div className={`py-4 text-white ${dir === "left" ? "text-left" : "text-right"}`}>
+                <div className={`py-4 text-black ${dir === "left" ? "text-left" : "text-right"}`}>
                   <span>
                     {" "}
                     {el.body.split("\n").map((line, idx) => (

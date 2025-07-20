@@ -1,7 +1,7 @@
 export default function Slogan() {
   return (
     <>
-      <p className="min-h-32 text-[#ecb962]">Slogan</p>
+      <p className="flex justify-center text-lg font-semibold text-black">الشعار</p>
     </>
   );
 }

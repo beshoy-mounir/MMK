@@ -8,13 +8,13 @@ import Taranem from "./taranem/Taranem";
 import Slogan from "./slogan/Slogan";
 import Prayer from "./prayer/Prayer";
 
-const tabs = ["ترانيم", "الشعار", "الصلاه", "البرناج"];
+const tabs = ["ترانيم", "الشعار", "الصلاه", "البرنامج"];
 
 export default function Tabs() {
-  const [selected, setSelected] = useState("البرناج");
+  const [selected, setSelected] = useState("البرنامج");
 
   const components = {
-    البرناج: Program,
+    البرنامج: Program,
     ترانيم: Taranem,
     الشعار: Slogan,
     الصلاه: Prayer,
@@ -22,13 +22,13 @@ export default function Tabs() {
   const ComponentToRender = components[selected];
 
   return (
-    <div className="flex h-full w-full flex-col items-center bg-[#c67f31] px-3 pb-10">
+    <div className="flex h-full w-full flex-col items-center justify-between px-3 pb-10 pt-5 backdrop-blur-md">
       <ul className="relative flex w-full justify-center space-x-4">
         {tabs.map((tab) => (
           <button
             key={tab}
             onClick={() => setSelected(tab)}
-            className="relative px-1 py-2 text-right text-xl font-semibold text-[#ecb962] [text-shadow:_0_2px_0_rgb(0_0_0_/_100%)]"
+            className="relative px-1 py-2 text-right text-2xl font-semibold"
           >
             {/* Use the new images object to render the correct image in a single line */}
             {/* <img src={images[tab]} alt={`${tab}`} className="h-full w-20 rounded-md object-cover" /> */}

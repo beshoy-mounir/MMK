@@ -7,49 +7,19 @@ import Program from "./program/Prgram";
 import Taranem from "./taranem/Taranem";
 import Slogan from "./slogan/Slogan";
 import Prayer from "./prayer/Prayer";
-// Images
-import programImg from "../assets/program.jpeg";
-import taranemImg from "../assets/taranem.jpeg";
-import prayersImg from "../assets/prayer.jpeg";
-import sloganImg from "../assets/slogan.jpeg";
 
-const tabs = ["Program", "Taranem", "Slogan", "Prayer"];
+const tabs = ["ترانيم", "الشعار", "الصلاه", "البرناج"];
 
 export default function Tabs() {
-  const [selected, setSelected] = useState("Program");
-  const [accordionData, setAccordionData] = useState([
-    {
-      id: "1",
-      head: "What is Material Tailwind?",
-      body: "We're not always in the position that we want to be at. We're constantly growing, making mistakes, and trying to actualize our dreams.",
-    },
-    {
-      id: "2",
-      head: "How to use Material Tailwind?",
-      body: "Start by integrating Tailwind CSS with components styled following Material Design guidelines and enhanced with interactivity.",
-    },
-    {
-      id: "3",
-      head: "What can I do with Material Tailwind?",
-      body: "You can build beautiful, responsive UIs with minimal effort while maintaining accessibility and consistency across your project.",
-    },
-  ]);
+  const [selected, setSelected] = useState("البرناج");
 
   const components = {
-    Program: Program,
-    Taranem: Taranem,
-    Slogan: Slogan,
-    Prayer: Prayer,
+    البرناج: Program,
+    ترانيم: Taranem,
+    الشعار: Slogan,
+    الصلاه: Prayer,
   };
   const ComponentToRender = components[selected];
-
-  // Create a new object to map tab names to image sources
-  const images = {
-    Program: programImg,
-    Taranem: taranemImg,
-    Slogan: sloganImg,
-    Prayer: prayersImg,
-  };
 
   return (
     <div className="flex h-full w-full flex-col items-center bg-[#c67f31] px-3 pb-10">
@@ -58,10 +28,11 @@ export default function Tabs() {
           <button
             key={tab}
             onClick={() => setSelected(tab)}
-            className="relative px-1 py-2 text-xl font-semibold text-[#ecb962] [text-shadow:_0_2px_0_rgb(0_0_0_/_100%)]"
+            className="relative px-1 py-2 text-right text-xl font-semibold text-[#ecb962] [text-shadow:_0_2px_0_rgb(0_0_0_/_100%)]"
           >
             {/* Use the new images object to render the correct image in a single line */}
-            <img src={images[tab]} alt={`${tab}`} className="h-full w-20 rounded-md object-cover" />
+            {/* <img src={images[tab]} alt={`${tab}`} className="h-full w-20 rounded-md object-cover" /> */}
+            {<span>{tab}</span>}
             {selected === tab && (
               <motion.div
                 layoutId="underline"

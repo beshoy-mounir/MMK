@@ -21,7 +21,7 @@ export default function Program() {
   ]);
   return (
     <>
-      <Acc accordionData={accordionData} dir={"left"} />
+      <Acc accordionData={accordionData} />
     </>
   );
 }

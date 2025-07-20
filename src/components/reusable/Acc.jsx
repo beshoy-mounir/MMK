@@ -29,22 +29,22 @@ export default function Acc({ accordionData, dir }) {
 
   return (
     <div className="flex flex-col divide-y overflow-hidden">
-      {accordionData.map((item) => (
-        <div key={item.id} className="flex w-full flex-col overflow-hidden">
+      {accordionData.map((el) => (
+        <div key={el.id} className="flex w-full flex-col overflow-hidden">
           <button
-            onClick={() => toggleOpen(item.id)}
+            onClick={() => toggleOpen(el.id)}
             className={`${dir === "left" ? "flex" : "flex-row-reverse"} ${dir === "left" ? "text-left" : "text-right"} w-full items-center justify-between px-5 py-4 font-semibold text-[#ecb962] text-black transition-colors`}
           >
-            <span>{item.head}</span>
+            <span>{el.head}</span>
             <IoIosArrowDown
               className={`transform text-xl transition-transform duration-300 ${
-                open === item.id ? "rotate-180" : ""
+                open === el.id ? "rotate-180" : ""
               }`}
             />
           </button>
           {/*  */}
           <AnimatePresence initial={false}>
-            {open === item.id && (
+            {open === el.id && (
               <motion.div
                 key="content"
                 initial="collapsed"
@@ -58,7 +58,12 @@ export default function Acc({ accordionData, dir }) {
                 className="px-5"
               >
                 <div className={`py-4 text-white ${dir === "left" ? "text-left" : "text-right"}`}>
-                  {item.body}
+                  <span>
+                    {" "}
+                    {el.body.split("\n").map((line, idx) => (
+                      <p key={idx}>{line}</p>
+                    ))}
+                  </span>
                 </div>
               </motion.div>
             )}
